@@ -15,6 +15,7 @@
 
 #define DEFSHELL	"/bin/sh"
 #define termprog 	"/usr/bin/xterm"
+#define menuprog	"/usr/bin/launcher"
 #define browseprog	"/usr/bin/librewolf"
 
 typedef struct Client Client;

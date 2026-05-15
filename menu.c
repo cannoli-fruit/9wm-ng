@@ -19,6 +19,7 @@ int numhidden;
 
 char *b3items[B3FIXED + MAXHIDDEN + 1] = {
 	"Terminal",
+	"Menu",
 	"Browser",
 	"Reshape",
 	"Move",
@@ -80,21 +81,24 @@ button(XButtonEvent * e)
 	case 0:		/* Terminal */
 		spawn(s, termprog);
 		break;
-	case 1:		/* New */
-		spawn(s, browseprog);
+	case 1:		/* Menu */
+		spawn(s, menuprog);
 		break;
 	case 2:		/* Browser */
+		spawn(s, browseprog);
+		break;
+	case 3:		/* Reshape */
 		reshape(selectwin(1, 0, s));
 		break;
-	case 3:		/* Move */
+	case 4:		/* Move */
 		move(selectwin(0, 0, s));
 		break;
-	case 4:		/* Delete */
+	case 5:		/* Delete */
 		shift = 0;
 		c = selectwin(1, &shift, s);
 		delete(c, shift);
 		break;
-	case 5:		/* Hide */
+	case 6:		/* Hide */
 		hide(selectwin(1, 0, s));
 		break;
 	default:		/* unhide window */
