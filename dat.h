@@ -5,7 +5,7 @@
 #define BORDER		_border
 #define	INSET		_inset
 #define MAXHIDDEN	32
-#define B3FIXED 	6
+#define B3FIXED 	7
 
 #define AllButtonMask	(Button1Mask|Button2Mask|Button3Mask \
 			|Button4Mask|Button5Mask)
