@@ -5,7 +5,7 @@
 #define BORDER		_border
 #define	INSET		_inset
 #define MAXHIDDEN	32
-#define B3FIXED 	5
+#define B3FIXED 	6
 
 #define AllButtonMask	(Button1Mask|Button2Mask|Button3Mask \
 			|Button4Mask|Button5Mask)
@@ -14,6 +14,8 @@
 #define MenuGrabMask	(ButtonMask|ButtonMotionMask|StructureNotifyMask)
 
 #define DEFSHELL	"/bin/sh"
+#define termprog 	"/usr/bin/xterm"
+#define browseprog	"/usr/bin/librewolf"
 
 typedef struct Client Client;
 typedef struct Menu Menu;
@@ -104,7 +106,7 @@ extern XFontStruct	*font;
 extern int 		curs;
 extern char		**myargv;
 extern Bool 		shape;
-extern char 		*termprog;
+/* extern char 		*termprog; */
 extern char 		*shell;
 extern char 		*version[];
 extern int		_border;

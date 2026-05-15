@@ -18,7 +18,8 @@ Client *hiddenc[MAXHIDDEN];
 int numhidden;
 
 char *b3items[B3FIXED + MAXHIDDEN + 1] = {
-	"New",
+	"Terminal",
+	"Browser",
 	"Reshape",
 	"Move",
 	"Delete",
@@ -76,21 +77,24 @@ button(XButtonEvent * e)
 	if (current && current->screen == s)
 		cmapnofocus(s);
 	switch (n = menuhit(e, &b3menu)) {
-	case 0:		/* New */
+	case 0:		/* Terminal */
 		spawn(s, termprog);
 		break;
-	case 1:		/* Reshape */
+	case 1:		/* New */
+		spawn(s, browseprog);
+		break;
+	case 2:		/* Browser */
 		reshape(selectwin(1, 0, s));
 		break;
-	case 2:		/* Move */
+	case 3:		/* Move */
 		move(selectwin(0, 0, s));
 		break;
-	case 3:		/* Delete */
+	case 4:		/* Delete */
 		shift = 0;
 		c = selectwin(1, &shift, s);
 		delete(c, shift);
 		break;
-	case 4:		/* Hide */
+	case 5:		/* Hide */
 		hide(selectwin(1, 0, s));
 		break;
 	default:		/* unhide window */
@@ -117,7 +121,7 @@ spawn(ScreenInfo * s, char *prog)
 			fprintf(stderr, "9wm: exec %s", shell);
 			perror(" failed");
 		}
-		execlp("xterm", "xterm", NULL);
+		execlp("st", "st", NULL);
 		perror("9wm: exec xterm failed");
 		exit(1);
 	}
